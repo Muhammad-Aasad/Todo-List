@@ -1,5 +1,11 @@
 import inquirer from "inquirer";
-let todo = [];
+let todos = [];
+let condition = true;
+
+
+
+
+while(condition){
 let addTask = await inquirer.prompt([
   {
     name: "todo",
@@ -7,9 +13,14 @@ let addTask = await inquirer.prompt([
     message: "What you want to add in your TODOS",
   },
   {
-    name: "addmore",
+    name: "addMore",
     type: "conform",
-    message: "Do Tou want to add more",
+    message: "Do Tou want to add more ",
+    default:"y/n"
   },
 ]);
-console.log(addTask.todo);
+
+todos.push(addTask.todo);
+condition = addTask.addMore
+console.log(todos);
+}
